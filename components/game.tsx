@@ -326,12 +326,12 @@ export const Game = () => {
         <>
           <div className="absolute left-4 bottom-4 right-4 z-30 flex items-center gap-2">
             <Button
-              className="text-sm p-1 w-auto"
+              className="text-sm px-1 w-auto"
               onClick={togglePauseGame}
               title={isPaused ? "Resume" : "Pause"}
             />
             <Button
-              className="text-sm p-1 w-auto"
+              className="text-sm px-1 w-auto"
               onClick={handleClose}
               title="Close"
             />

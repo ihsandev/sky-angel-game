@@ -73,7 +73,7 @@ export const GameOver = ({
             onClick={handleContinue}
             title={loading ? "Submitting" : "Continue"}
           />
-          <Button className="text-sm px-2" onClick={onClose} title="Cancel" />
+          <Button onClick={onClose} title="Cancel" />
         </div>
       </form>
     </div>

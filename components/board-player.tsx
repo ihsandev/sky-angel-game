@@ -12,7 +12,7 @@ export const BoardPlayers = () => {
   return (
     <div className="flex justify-center mt-10 h-full">
       <Button
-        className="text-sm p-1 w-auto absolute top-4 left-4"
+        className="text-base w-auto absolute top-4 left-4"
         onClick={() => router.back()}
         title="Back"
       />
