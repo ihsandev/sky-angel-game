@@ -1,14 +1,15 @@
 "use client";
 
-import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AirCraft } from "./aircraft";
 import { Bird, BirdType } from "./bird";
+import { Button } from "./button";
 import { Cloud, CloudType } from "./clouds";
+import { GameOver } from "./game-over";
+import { Mountain } from "./mountain";
 import { Parachute, ParachuteType } from "./parachute";
 import { Star } from "./star";
-import { Button } from "./button";
-import { GameOver } from "./game-over";
 
 const initialBirds: BirdType[] = [
   { x: 1000, y: 50 },
@@ -17,6 +18,7 @@ const initialBirds: BirdType[] = [
 ];
 
 export const Game = () => {
+  const router = useRouter();
   const [isStartGame, setIsStartGame] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
@@ -304,8 +306,13 @@ export const Game = () => {
           </h1>
           <Button
             title="Start Game"
-            className="text-5xl"
+            className="text-4xl"
             onClick={startPlayGame}
+          />
+          <Button
+            title="Board Players"
+            className="text-base absolute top-4 right-4"
+            onClick={() => router.push("/board-players")}
           />
         </div>
       ) : isGameOver ? (
@@ -356,15 +363,7 @@ export const Game = () => {
           <AirCraft isStartGame={isStartGame} aircraftRef={aircraftRef} />
         </>
       )}
-      <div className="absolute -bottom-6 flex justify-center w-full">
-        <Image
-          src="/mounting.png"
-          alt="mounting"
-          width={500}
-          height={500}
-          className="w-auto h-auto"
-        />
-      </div>
+      <Mountain />
     </div>
   );
 };

@@ -1,6 +1,18 @@
 import { db } from "@/configs/db";
 import { NextRequest, NextResponse } from "next/server";
 
+export async function GET() {
+  try {
+    const response = await db
+      .from("players")
+      .select("*")
+      .order("created_at", { ascending: false });
+    return NextResponse.json(response);
+  } catch (error) {
+    return NextResponse.json({ error: "An error occurred" }, { status: 500 });
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
     const data = await request.json();
