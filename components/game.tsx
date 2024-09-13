@@ -66,11 +66,7 @@ export const Game = () => {
   }, [isStartGame, isPaused, startTimer]);
 
   const spawnClouds = (): void => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-
-    intervalRef.current = setInterval(() => {
+    setInterval(() => {
       if (!isPaused) {
         const newCloud: CloudType = {
           x: 1024,
@@ -82,11 +78,7 @@ export const Game = () => {
   };
 
   const spawnBirds = (): void => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-
-    intervalRef.current = setInterval(() => {
+    setInterval(() => {
       if (!isPaused) {
         const newBird: BirdType = {
           x: 1024,
